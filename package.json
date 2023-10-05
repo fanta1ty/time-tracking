@@ -12,8 +12,11 @@
     "expo": "~49.0.11",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
-    "react-native": "0.72.4"
+    "react-native": "0.72.4",
+    "react-native-get-random-values": "^1.9.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
