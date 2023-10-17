@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { StyleSheet, View, Text, TextInput } from "react-native";
+
 import TimerButton from "./TimerButton";
-import { View, StyleSheet, TextInput, Text } from "react-native";
 
 export default class TimerForm extends React.Component {
   static propTypes = {
@@ -22,7 +23,7 @@ export default class TimerForm extends React.Component {
   constructor(props) {
     super(props);
 
-    const { id, title, project, onFormSubmit } = props;
+    const { id, title, project } = props;
 
     this.state = {
       title: id ? title : "",
@@ -52,7 +53,6 @@ export default class TimerForm extends React.Component {
   render() {
     const { id, onFormClose } = this.props;
     const { title, project } = this.state;
-
     const submitText = id ? "Update" : "Create";
 
     return (

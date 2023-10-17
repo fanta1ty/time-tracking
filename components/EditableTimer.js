@@ -12,20 +12,13 @@ export default class EditableTimer extends React.Component {
     elapsed: PropTypes.number.isRequired,
     isRunning: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
-    onRemovePress: PropTypes.func.isRequired,
     onStartPress: PropTypes.func.isRequired,
     onStopPress: PropTypes.func.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-
-    const { onFormSubmit } = this.props;
-
-    this.state = {
-      editFormOpen: false,
-    };
-  }
+  state = {
+    editFormOpen: false,
+  };
 
   handleEditPress = () => {
     this.openForm();
@@ -43,15 +36,11 @@ export default class EditableTimer extends React.Component {
   };
 
   closeForm = () => {
-    this.setState({
-      editFormOpen: false,
-    });
+    this.setState({ editFormOpen: false });
   };
 
   openForm = () => {
-    this.setState({
-      editFormOpen: true,
-    });
+    this.setState({ editFormOpen: true });
   };
 
   render() {
@@ -66,6 +55,7 @@ export default class EditableTimer extends React.Component {
       onStopPress,
     } = this.props;
     const { editFormOpen } = this.state;
+
     if (editFormOpen) {
       return (
         <TimerForm

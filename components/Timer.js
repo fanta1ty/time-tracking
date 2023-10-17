@@ -1,9 +1,9 @@
 import React from "react";
+import { StyleSheet, View, Text } from "react-native";
 import PropTypes from "prop-types";
 
 import { millisecondsToHuman } from "../utils/TimerUtils";
 import TimerButton from "./TimerButton";
-import { StyleSheet, View, Text } from "react-native";
 
 export default class Timer extends React.Component {
   static propTypes = {
@@ -15,7 +15,6 @@ export default class Timer extends React.Component {
     onEditPress: PropTypes.func.isRequired,
     onRemovePress: PropTypes.func.isRequired,
     onStartPress: PropTypes.func.isRequired,
-    onStopPress: PropTypes.func.isRequired,
   };
 
   handleRemovePress = () => {
@@ -30,7 +29,6 @@ export default class Timer extends React.Component {
 
   handleStopPress = () => {
     const { id, onStopPress } = this.props;
-
     onStopPress(id);
   };
 
@@ -46,7 +44,6 @@ export default class Timer extends React.Component {
         />
       );
     }
-
     return (
       <TimerButton
         color="#21BA45"
@@ -57,7 +54,7 @@ export default class Timer extends React.Component {
   }
 
   render() {
-    const { elapsed, title, project, onEditPress } = this.props;
+    const { title, project, elapsed, onEditPress } = this.props;
     const elapsedString = millisecondsToHuman(elapsed);
 
     return (
@@ -66,7 +63,12 @@ export default class Timer extends React.Component {
         <Text>{project}</Text>
         <Text style={styles.elapsedTime}>{elapsedString}</Text>
         <View style={styles.buttonGroup}>
-          <TimerButton color="blue" small title="Edit" onPress={onEditPress} />
+          <TimerButton
+            color="blue"
+            small
+            title="Edit"
+            onEditPress={onEditPress}
+          />
           <TimerButton
             color="blue"
             small
@@ -83,7 +85,7 @@ export default class Timer extends React.Component {
 const styles = StyleSheet.create({
   timerContainer: {
     backgroundColor: "white",
-    borderColor: "#d6d7da",
+    borderColor: "#D6D7DA",
     borderWidth: 2,
     borderRadius: 10,
     padding: 15,

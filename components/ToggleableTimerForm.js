@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { StyleSheet, View } from "react-native";
 
 import TimerButton from "./TimerButton";
 import TimerForm from "./TimerForm";
-import { StyleSheet, View } from "react-native";
 
-export default class ToggleableTimerFor extends React.Component {
+export default class ToggleableTimerForm extends React.Component {
   static propTypes = {
     onFormSubmit: PropTypes.func.isRequired,
   };
-
+  
   state = {
     isOpen: false,
   };
@@ -30,9 +30,7 @@ export default class ToggleableTimerFor extends React.Component {
     const { onFormSubmit } = this.props;
 
     onFormSubmit(timer);
-    this.setState({
-      isOpen: false,
-    });
+    this.setState({ isOpen: false });
   };
 
   render() {
